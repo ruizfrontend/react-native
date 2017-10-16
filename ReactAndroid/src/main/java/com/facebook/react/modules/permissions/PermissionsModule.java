@@ -116,7 +116,8 @@ public class PermissionsModule extends ReactContextBaseJavaModule implements Per
           @Override
           public void invoke(Object... args) {
             int[] results = (int[]) args[0];
-            if (results[0] == PackageManager.PERMISSION_GRANTED) {
+            if (results.length &&
+                results[0] == PackageManager.PERMISSION_GRANTED) {
               promise.resolve(GRANTED);
             } else {
               PermissionAwareActivity activity = (PermissionAwareActivity) args[1];
